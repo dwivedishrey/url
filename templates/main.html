@@ -1,0 +1,99 @@
+{% load static %}
+<html>
+<body>
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<link rel="stylesheet" href="static/url.css">
+<script src="static/url.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+</body>
+<nav id="navbar-example2"class="navbar navbar-expand-lg navbar-light" style="background-color: black;">
+  <img src="{% static '89805649_padded_logo.png' %}" height=180px />
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link" href="#scrollspyHeading1">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#scrollspyHeading2">Contact Us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#scrollspyHeading2">About Us</a>
+    </li>
+</nav>
+<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+  <h2 id="scrollspyHeading1" align=center>URLs When the shorter the better</h2>
+  <form id="post-form">
+    {% csrf_token %}
+
+<div class="buttons" id="button1" >
+
+  <input type="text" name="link" id="link" align=center padding-right=20px  placeholder="Enter URL here">
+
+  <button align=center  onclick=submit id="shorten">Shorten</button>
+<button><a id="try"   href="{% url 'index' %}">Try Another</a></button>
+<section id="section"><h6>Click To See Your Shortened Link</h6></section>
+<img id="cartoon" align=right src="{% static 'cartoon.jfif' %}" height=400px />
+
+
+
+</form>
+
+<script type="text/javascript">
+
+  $(document).on('submit', '#post-form',function(e){
+    e.preventDefault();
+    $.ajax({
+      type:'POST',
+      url:'/create',
+      data:{
+        link:$('#link').val(),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+
+      },
+      success:function(data){
+        $('h6').html("localhost:8000/"+data)
+      }
+    });
+  });
+
+</script>
+<div>
+  <h3 id="scrollspyHeading1" align=center>The link shortener that has your brand’s back</h3>
+<h5 align=center>Your brand wasn’t built to be hidden. Help it stand out with branded links that drive more click</h5>
+  <footer class="text-muted py-5" >
+  <div class="container text-center"  >
+     <p>A URL shortener, also known as a link shortener, seems like a simple tool, but it is a service that can have a dramatic impact on your marketing efforts.
+
+Link shorteners work by transforming any long URL into a shorter, more readable link. When a user clicks the shortened version, they’re automatically forwarded to the destination URL.
+
+Think of a short URL as a more descriptive and memorable nickname for your long webpage address. You can, for example, use a short URL like bit.ly/CelebrateBitly so people will have a good idea about where your link will lead before they click it.
+
+If you’re contributing content to the online world, you need a URL shortener.
+
+Make your URLs stand out with our easy to use free link shortener above.</p>
+</div>
+  </div>
+</footer>
+<br>
+<br>
+<br>
+<br>
+  <h4 id="scrollspyHeading2">Contact Us</h4>
+  <footer class="text-muted py-5" style="background-color:black; height:250px; width:1520px;"">
+  <div class="container text-center"  >
+     <a href="mailto:dwivedishreya0822@gmail.com" ><p style="color:white;"align=left>|Email<img src="{% static 'gmail.png' %}"  height=28px align=left ></p></a>
+    <p style="color:white;"align=left>|7525071604<img src="{% static 'telephone.png' %}"  height=28px align=left ></p>
+     <a href="https://www.google.co.in/maps/@27.141237,80.8833819,7z" ><p style="color:white;"align=left>|Address<img src="{% static 'map.png' %}"  height=28px align=left ></p></a>
+    <p style="color:white;">© Shreya Dwivedi {% now "Y" %}</p>
+    <a href="https://twitter.com/?lang=en-in"><img src="{% static 'twitter.png' %}"  height=18px ></a>
+    <a href="https://www.facebook.com/login.php"><img src="{% static 'facebook.png' %}"  height=18px ></a>
+    <a href="https://www.linkedin.com/in/shreya-dwivedi-a7959422b/"><img src="{% static 'linkedin.png' %}"  height=18px ></a>
+    <a href="https://www.instagram.com/?hl=en"><img src="{% static 'instagram.png' %}"  height=18px ></a>
+    <a href="https://github.com/"><img src="{% static 'github.png' %}"  height=18px ></a>
+
+  </div>
+</footer>
+</div>
+<html>
