@@ -13,32 +13,61 @@
   <img src="{% static '89805649_padded_logo.png' %}" height=180px />
   <ul class="nav nav-pills">
     <li class="nav-item">
-      <a class="nav-link" href="#scrollspyHeading1">Home</a>
+      <a class="nav-link" style="color: white;" href='{% url 'index' %}'>Home</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link"style="color: white;" href="#scrollspyHeading2">About Us</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#scrollspyHeading2">Contact Us</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#scrollspyHeading2">About Us</a>
+      <a class="nav-link" style="color: white;" href="#scrollspyHeading3">Contact Us</a>
     </li>
 </nav>
 <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-  <h2 id="scrollspyHeading1" align=center>URLs When the shorter the better</h2>
+  <h2 id="scrollspyHeading1" style="font-size:5vw;margin-top:100px" align=center>URLs When the shorter the better</h2>
+  <br>
+
+  <h3 id="scrollspyHeading1" align=center>The link shortener that has your brand’s back</h3>
+<h5 align=center>Your brand wasn’t built to be hidden. Help it stand out with branded links that drive more click</h5>
+<br>
   <form id="post-form">
     {% csrf_token %}
 
 <div class="buttons" id="button1" >
 
-  <input type="text" name="link" id="link" align=center padding-right=20px  placeholder="Enter URL here">
 
-  <button align=center  onclick=submit id="shorten">Shorten</button>
-<button><a id="try"   href="{% url 'index' %}">Try Another</a></button>
-<section id="section"><h6>Click To See Your Shortened Link</h6></section>
+<input type="text" style="font-size:2vw;margin-left: 100px;padding-left: 20px;padding-right:200px;border-radius:25px;" name="link" id="link" align=center padding-right=20px  placeholder="Enter URL here">
+
+
+<button align=right style="font-size:2vw;margin-left:10px;border-radius:25px;background-color:#196091;color:white" onclick=submit id="shorten">Shorten</button>
+<button onclick="window.location.href='{% url 'index' %}'" id="try" style="font-size:1.8vw;margin-left:10px;border-radius:25px;background-color:#196091;color:white">Try Another</button>
+<br>
+<div>
+<section id="section" style="font-size:2vw;margin-right:100px;margin-left:100px;margin-top:5px;"><h6></h6></section>
+</div>
+</div>
 <img id="cartoon" align=right src="{% static 'cartoon.jfif' %}" height=400px />
 
 
 
+
 </form>
+<style>
+.blue {
+  color: blue;
+  border:black;
+  border-width:2px;
+  border-style:solid;
+  padding-left: 5px;
+}
+</style>
+
+
+
+<!-- The text field -->
+
+<!-- The button used to copy the text -->
+
 
 <script type="text/javascript">
 
@@ -53,26 +82,30 @@
 
       },
       success:function(data){
-        $('h6').html("localhost:8000/"+data)
+       $('#section').html("shreyadwivedi.pythonanywhere.com/"+data).addClass("blue")
       }
     });
   });
 
+
 </script>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h4 id="scrollspyHeading2" style="font-size:3vw;">About Us</h4>
 <div>
-  <h3 id="scrollspyHeading1" align=center>The link shortener that has your brand’s back</h3>
-<h5 align=center>Your brand wasn’t built to be hidden. Help it stand out with branded links that drive more click</h5>
+
   <footer class="text-muted py-5" >
-  <div class="container text-center"  >
-     <p>A URL shortener, also known as a link shortener, seems like a simple tool, but it is a service that can have a dramatic impact on your marketing efforts.
+  <div class="container text-center" style=" margin-right:250px;padding-right:50px;" >
+     <p style="font-size:1.5vw;border:orange; border-width:5px; border-style:solid;">A URL shortener, also known as a link shortener, seems like a simple tool, but it is a service that can have a dramatic impact on your marketing efforts.
 
 Link shorteners work by transforming any long URL into a shorter, more readable link. When a user clicks the shortened version, they’re automatically forwarded to the destination URL.
 
 Think of a short URL as a more descriptive and memorable nickname for your long webpage address. You can, for example, use a short URL like bit.ly/CelebrateBitly so people will have a good idea about where your link will lead before they click it.
-
-If you’re contributing content to the online world, you need a URL shortener.
-
-Make your URLs stand out with our easy to use free link shortener above.</p>
+</p>
 </div>
   </div>
 </footer>
@@ -80,8 +113,8 @@ Make your URLs stand out with our easy to use free link shortener above.</p>
 <br>
 <br>
 <br>
-  <h4 id="scrollspyHeading2">Contact Us</h4>
-  <footer class="text-muted py-5" style="background-color:black; height:250px; width:1520px;"">
+  <h4 id="scrollspyHeading3" style="font-size:3vw">Contact Us</h4>
+  <footer class="text-muted py-5" style="background-color:black; height:50%; width:100%;">
   <div class="container text-center"  >
      <a href="mailto:dwivedishreya0822@gmail.com" ><p style="color:white;"align=left>|Email<img src="{% static 'gmail.png' %}"  height=28px align=left ></p></a>
     <p style="color:white;"align=left>|7525071604<img src="{% static 'telephone.png' %}"  height=28px align=left ></p>
